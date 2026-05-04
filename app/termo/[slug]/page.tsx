@@ -4,13 +4,24 @@ import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function TermoPage({ params }: { params: { slug: string } }) {
-  const filePath = path.join(process.cwd(), 'content', `${params.slug}.md`);
+export default async function TermoPage({ params }: { params: Promise<{ slug: string }> }) {
+  // 1. Aguarda os parâmetros e limpa a URL para garantir que o nome do arquivo bata
+  const resolvedParams = await params;
+  const slug = decodeURIComponent(resolvedParams.slug); 
   
+  const filePath = path.join(process.cwd(), 'content', `${slug}.md`);
+  
+  // 2. Tela de erro amigável se não achar o arquivo
   if (!fs.existsSync(filePath)) {
-    return <div className="p-20 text-center text-2xl font-serif">Verbete não encontrado.</div>;
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-wiki-bg text-wiki-text-primary font-serif">
+        <h1 className="text-3xl mb-4">Verbete "{slug}" não encontrado.</h1>
+        <Link href="/" className="text-wiki-link hover:underline">← Voltar para o início</Link>
+      </div>
+    );
   }
 
+  // 3. Se achou, lê e renderiza
   const fileContent = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContent);
 
