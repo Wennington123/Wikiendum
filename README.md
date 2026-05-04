@@ -42,6 +42,7 @@ No seu repositório recém-copiado, navegue até a pasta `content`.
 ### 3. Estrutura Padrão (Frontmatter)
 Todo verbete deve seguir este molde exato. Copie, cole e preencha com a sua citação acadêmica:
 
+```
 ---
 termo: "Nome do Termo com Letra Maiúscula"
 definicoes:
@@ -54,6 +55,7 @@ definicoes:
     colaborador_nome: "Seu Nome"
     colaborador_orcid: "0000-0000-0000-0000"
 ---
+```
 
 Escreva aqui um texto livre de introdução sobre o termo. Ele aparecerá no topo da página.
 
