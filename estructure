@@ -1,0 +1,90 @@
+1. A Arquitetura do Sistema
+
+    Frontend (UI/UX): React (Sugiro fortemente usar o framework Next.js, pois ele facilita muito a leitura de arquivos locais e gera páginas estáticas perfeitas para o SEO que um dicionário precisa ter).
+
+    Banco de Dados: Arquivos Markdown (.md) puros. Usaremos o Frontmatter (cabeçalho YAML dentro do Markdown) para estruturar os dados de forma legível por máquinas.
+
+    Validação e Automação (Backend leve): Um script em Python rodando como uma Serverless Function (você pode hospedar isso de graça na Vercel junto com o Next.js, ou usar o PythonAnywhere/Render).
+
+2. O Modelo de Dados (Como guardar os verbetes)
+
+Seu "banco de dados" será uma pasta cheia de arquivos .md. Cada arquivo é um termo. Veja como seria a estrutura do arquivo laicidade.md:
+Markdown
+
+---
+termo: "Laicidade"
+definicoes:
+  - id: 1
+    autor_citado: "Jean Baubérot"
+    obra: "História da Laicidade na França"
+    ano: 2007
+    pagina: 34
+    texto_citacao: "A laicidade não é a negação do religioso, mas a garantia da liberdade de consciência em um espaço público neutro."
+    colaborador_nome: "João da Silva"
+    colaborador_orcid: "0000-0002-1825-0097"
+  - id: 2
+    autor_citado: "Roberto Blancarte"
+    obra: "O porquê de um Estado laico"
+    ano: 2008
+    pagina: 15
+    texto_citacao: "A laicidade é um regime social de convivência, cujas instituições políticas estão legitimadas pela soberania popular e não por elementos religiosos."
+    colaborador_nome: "Maria Oliveira"
+    colaborador_orcid: "0000-0001-2345-6789"
+---
+
+Aqui no corpo do texto em Markdown você (o autor do projeto) pode escrever uma introdução geral, etimologia da palavra, ou um resumo da evolução do conceito. As definições pesadas ficam organizadas no cabeçalho acima para o React renderizar como uma lista bonitinha.
+
+3. Estrutura de Diretórios (Esqueleto)
+
+No seu repositório GitHub, a árvore do projeto ficará mais ou menos assim:
+Plaintext
+
+/meu-wiki-filosofico
+├── /content                  # Seu "Banco de Dados"
+│   ├── religiao.md
+│   ├── laicidade.md
+│   └── epistemologia.md
+├── /src                      # Seu Frontend React
+│   ├── /components           # Cards de definições, Formulário de Envio, Header
+│   ├── /pages                # Roteamento (ex: /termo/[id])
+│   └── /utils                # Funções JS para ler o Frontmatter dos .md
+├── /api                      # Seu Backend Serverless
+│   └── submit_definition.py  # Script Python para lidar com o Formulário
+├── package.json              # Dependências do Front (React/JS)
+└── requirements.txt          # Dependências do Back (Python)
+
+4. O Fluxo de Contribuição (A Mágica Acontecendo)
+
+É aqui que o seu sistema resolve o problema de pessoas que não sabem programar.
+
+    O pesquisador entra na página do termo "Laicidade" e clica no botão "Adicionar nova definição".
+
+    Abre-se um formulário em React pedindo os dados da citação e o ORCID do pesquisador.
+
+    Ao clicar em "Enviar", o React faz um POST request para o seu script Python (submit_definition.py).
+
+    O papel do script Python:
+
+        Faz um request para a API Pública do ORCID para verificar se o ORCID fornecido existe e se o nome bate.
+
+        Se for válido, ele usa a API REST do GitHub ou a biblioteca PyGithub.
+
+        O Python clona o repositório virtualmente, adiciona a nova definição no final do arquivo laicidade.md.
+
+        Cria uma nova branch (ex: nova-definicao-laicidade).
+
+        Abre um Pull Request (PR) automaticamente no seu GitHub.
+
+    Você recebe um e-mail do GitHub: "Novo Pull Request para Laicidade". Você entra, lê a definição, clica em "Merge" e o site é atualizado automaticamente.
+
+5. Plano de Ação (Próximos Passos para Início)
+
+Para não se perder na complexidade, desenvolva em etapas:
+
+    Fase 1 (O Mostruário): Crie o projeto em React, crie a pasta content com uns 3 termos de teste em Markdown. Faça o código JavaScript ler esses arquivos e renderizar na tela bonitinho. Coloque no ar (via GitHub Pages, Vercel ou Netlify).
+
+    Fase 2 (O Backend de Validação): Escreva o script Python separadamente no seu computador. Faça ele receber um ORCID falso de teste e bater na API do ORCID para validar.
+
+    Fase 3 (A Integração do GitHub): No mesmo script Python, implemente a integração com a API do GitHub para editar um arquivo e gerar um PR.
+
+    Fase 4 (O Casamento): Crie o formulário no React e conecte-o ao seu script Python.
