@@ -57,3 +57,16 @@ definicoes:
 ---
 
 Escreva aqui um texto livre de introdução sobre o termo. Ele aparecerá no topo da página.
+
+(Dica: Para adicionar mais definições no mesmo arquivo, basta criar um - id: 2 seguindo o mesmo padrão abaixo da primeira definição, dentro dos tracinhos).
+
+### 4. Salve suas alterações
+
+Após preencher as informações, vá para o canto superior direito e clique no botão verde "Commit changes...". Escreva uma breve mensagem dizendo o que você fez (ex: "Adicionado o verbete X") e confirme.
+
+### 5. Abra um "Pull Request"
+
+Agora é só mandar o seu texto para o dicionário oficial!
+Volte para a página inicial do seu Fork, clique no botão "Contribute" e depois em "Open pull request". Deixe um comentário sobre a sua adição e clique em "Create pull request".
+
+Pronto! Sua contribuição será analisada e, assim que aprovada, entrará automaticamente no site oficial do Wikiendum.
