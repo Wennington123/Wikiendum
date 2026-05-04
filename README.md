@@ -18,11 +18,42 @@ Este projeto foi construído com foco em performance, SEO e facilidade de manute
 * **Markdown + Gray-Matter** para o gerenciamento de conteúdo (verbetes).
 
 ---
+## 🌐 Acesso ao Projeto
 
-## ⚙️ Como rodar o projeto localmente
+O Wikiendum está disponível online! Acesse o dicionário completo em:
+**[Inserir o seu link do Vercel aqui - ex: https://wikiendum.vercel.app]**
 
-Para testar o Wikiendum na sua máquina, siga os passos abaixo. Você precisará do [Node.js](https://nodejs.org/) instalado.
+---
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/Wennington123/Wikiendum.git](https://github.com/Wennington123/Wikiendum.git)
+## 🤝 Como colaborar (Passo a Passo)
+
+Você não precisa saber programar ou instalar nada no seu computador para colaborar com o Wikiendum! Todo o conteúdo é gerenciado através de arquivos de texto simples (Markdown) dentro da pasta `content`.
+
+Siga este passo a passo para adicionar novos verbetes ou definições diretamente pelo navegador:
+
+### 1. Faça um "Fork" do projeto
+No canto superior direito desta página no GitHub, clique no botão **"Fork"** e depois em "Create Fork". Isso criará uma cópia exata do Wikiendum no seu próprio perfil do GitHub para você poder mexer à vontade.
+
+### 2. Adicione ou Edite um Arquivo
+No seu repositório recém-copiado, navegue até a pasta `content`. 
+- **Para um novo termo:** Clique em `Add file` > `Create new file`. O nome do arquivo deve ser o termo em minúsculas (ex: `laicidade.md`).
+- **Para adicionar a um termo existente:** Clique no arquivo desejado e depois no ícone de lápis (✏️) no canto superior direito para editar.
+
+### 3. Estrutura Padrão (Frontmatter)
+Todo verbete deve seguir este molde exato. Copie, cole e preencha com a sua citação acadêmica:
+
+```text
+---
+termo: "Nome do Termo com Letra Maiúscula"
+definicoes:
+  - id: 1
+    texto_citacao: "Escreva aqui a citação exata do autor sobre o conceito..."
+    autor_citado: "Nome do Autor"
+    obra: "Nome do Livro ou Artigo"
+    ano: 2024
+    pagina: 42
+    colaborador_nome: "Seu Nome"
+    colaborador_orcid: "0000-0000-0000-0000"
+---
+
+Escreva aqui um texto livre de introdução sobre o termo. Ele aparecerá no topo da página.
