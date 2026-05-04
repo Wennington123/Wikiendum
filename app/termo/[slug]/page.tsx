@@ -39,7 +39,7 @@ export default async function TermoPage({ params }: { params: Promise<{ slug: st
           </div>
           <nav className="flex gap-4 text-sm font-sans">
             <Link href="/" className="text-wiki-link hover:underline">Verbetes</Link>
-            <Link href="#" className="text-wiki-link hover:underline">Colaborar</Link>
+            <Link href="/colaborar" className="text-wiki-link hover:underline">Colaborar</Link>
           </nav>
         </div>
       </header>
