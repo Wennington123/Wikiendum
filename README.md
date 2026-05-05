@@ -69,3 +69,21 @@ Agora é só mandar o seu texto para o dicionário oficial!
 Volte para a página inicial do seu Fork, clique no botão "Contribute" e depois em "Open pull request". Deixe um comentário sobre a sua adição e clique em "Create pull request".
 
 Pronto! Sua contribuição será analisada e, assim que aprovada, entrará automaticamente no site oficial do Wikiendum.
+
+---
+
+## 📚 Como citar este projeto
+
+Se você utilizar conhecimentos deste dicionário em trabalhos acadêmicos, utilize os formatos abaixo seguindo as normas da **ABNT (NBR 6023)**. 
+
+> **Nota:** A autoria geral e coordenação do dicionário Wikiendum pertence a **Wennington Dias Aquino**, enquanto a autoria de verbetes específicos pode variar conforme o colaborador original.
+
+### 1. Citação de um verbete específico
+Use este formato quando o verbete possuir um autor identificado (verifique o histórico de commits ou autoria no arquivo):
+
+**SOBRENOME, Nome do Autor do Verbete.** Nome do Verbete. In: AQUINO, Wennington Dias. **Wikiendum: dicionário colaborativo de conceitos**. Disponível em: <https://github.com/Wennington123/Wikiendum>. Acesso em: [Dia, Mês e Ano].
+
+### 2. Citação do dicionário no todo
+Use este formato para referenciar o projeto como um todo:
+
+AQUINO, Wennington Dias. **Wikiendum: dicionário colaborativo de conceitos**. Wikiendum, 2026. Disponível em: <https://wikiendum.vercel.app/>. Acesso em: [Dia, Mês e Ano].
