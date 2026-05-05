@@ -21,7 +21,7 @@ Este projeto foi construído com foco em performance, SEO e facilidade de manute
 ## 🌐 Acesso ao Projeto
 
 O Wikiendum está disponível online! Acesse o dicionário completo em:
-**https://wikiendum.vercel.app]**
+**https://wikiendum.vercel.app**
 
 ---
 
