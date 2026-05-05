@@ -81,7 +81,7 @@ Se você utilizar conhecimentos deste dicionário em trabalhos acadêmicos, util
 ### 1. Citação de um verbete específico
 Use este formato quando o verbete possuir um autor identificado (verifique o histórico de commits ou autoria no arquivo):
 
-**SOBRENOME, Nome do Autor do Verbete.** Nome do Verbete. In: AQUINO, Wennington Dias. **Wikiendum: dicionário colaborativo de conceitos**. Disponível em: <https://github.com/Wennington123/Wikiendum>. Acesso em: [Dia, Mês e Ano].
+**SOBRENOME, Nome do Autor do Verbete.** Nome do Verbete. In: AQUINO, Wennington Dias. **Wikiendum: dicionário colaborativo de conceitos**. Disponível em: <https://wikiendum.vercel.app/>. Acesso em: [Dia, Mês e Ano].
 
 ### 2. Citação do dicionário no todo
 Use este formato para referenciar o projeto como um todo:
