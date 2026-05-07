@@ -76,7 +76,7 @@ export default function ColaborarPage() {
             </div>
           </div>
 
-          <button type="submit" className="w-full bg-wiki-link text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition-colors shadow-md">
+          <button type="submit" className="w-full bg-wiki-link text-white font-bold py-4 rounded-lg shadow-md hover:opacity-90 hover:shadow-lg transition-all duration-200">
             Enviar Proposta de Verbete
           </button>
         </form>
