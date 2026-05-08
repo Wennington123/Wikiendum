@@ -2,7 +2,7 @@
 termo: "Qualidade da educação Matemática em formação inicial de professores"
 definicoes:
   - id: 1
-    autor_citado: "Akkari; Radhouane"
+    autor_citado: "Michela Caroline Macêdo"
     obra: "A qualidade da educação matemática na formação inicial de professores em cursos de pedagogia"
     ano: 2019
     pagina: 266
