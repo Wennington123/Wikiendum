@@ -83,16 +83,18 @@ export default function Donation() {
                 </div>
               ) : (
                 <div className="py-4">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Aceitamos doações através de plataformas parceiras.
+                  <p className="text-sm text-gray-700 mb-5">
+                    Aceitamos cartões de crédito, Apple Pay e Google Pay através da plataforma parceira.
                   </p>
+                  {/* Botão atualizado com o link e cores do Buy Me a Coffee */}
                   <a 
-                    href="#" 
+                    href="https://buymeacoffee.com/wikiendum" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-black bg-[#FFDD00] rounded-lg hover:bg-[#FFD000] transition-colors shadow-sm"
                   >
-                    Acessar Plataforma de Doação
+                    <Coffee size={18} />
+                    Apoiar no Buy Me a Coffee
                   </a>
                 </div>
               )}
