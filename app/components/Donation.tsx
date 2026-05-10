@@ -65,12 +65,19 @@ export default function Donation() {
               {activeTab === "pix" ? (
                 <div>
                   <p className="text-sm text-gray-700 mb-4">Escaneie o QR Code ou copie a chave Pix abaixo:</p>
-                  <div className="w-32 h-32 mx-auto bg-gray-200 rounded-lg border-2 border-dashed border-gray-400 flex items-center justify-center mb-4">
-                    <span className="text-xs text-gray-500">Seu QR Code</span>
+                  
+                  {/* Container da imagem do QR Code atualizado */}
+                  <div className="w-32 h-32 mx-auto mb-4">
+                    <img 
+                      src="/qrcode-pix.png" 
+                      alt="QR Code Pix para doação" 
+                      className="w-full h-full object-contain rounded-lg shadow-sm" 
+                    />
                   </div>
+                  
                   <div className="flex flex-col gap-2">
                     <code className="block p-2 text-xs bg-white border border-gray-200 rounded text-left break-all">
-                      Sua_Chave_Pix_Aqui_00000000000
+                      (74) 98821-7793
                     </code>
                   </div>
                 </div>
