@@ -3,7 +3,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
-import Donation from '../../components/Donation';
 
 export default async function TermoPage({ params }: { params: Promise<{ slug: string }> }) {
   // 1. Aguarda os parâmetros e limpa a URL para garantir que o nome do arquivo bata
@@ -79,9 +78,7 @@ export default async function TermoPage({ params }: { params: Promise<{ slug: st
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
           </svg>
           Acessar Repositório
-        </a>
-          {/* Componente de Doação */}
-          <Donation />        
+        </a>       
       </footer>
     </div>
   );

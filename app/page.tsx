@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
+import Donation from './components/Donation';
 
 export default function Home() {
   const contentDir = path.join(process.cwd(), 'content');
@@ -62,22 +63,32 @@ export default function Home() {
         </div>
       </main>
 
-      {/* NOVO FOOTER COM GITHUB */}
+  {/* NOVO FOOTER COM GITHUB E DOAÇÃO */}
       <footer className="py-12 px-6 max-w-6xl mx-auto text-sm text-wiki-text-secondary font-sans mt-12 border-t border-gray-200 flex flex-col items-center justify-center gap-5">
         <p>Este projeto é open-source. Colabore, adicione verbetes e melhore o código.</p>
-        <a 
-          href="https://github.com/Wennington123/Wikiendum" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#24292e] text-white rounded-lg hover:bg-[#1b1f23] transition-colors shadow-sm font-medium"
-        >
-          {/* Ícone SVG oficial do GitHub */}
-          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 9 18v4"></path>
-            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-          </svg>
-          Acessar Repositório
-        </a>
+        
+        {/* Container Flex para deixar os botões lado a lado */}
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+          
+          {/* Botão do GitHub */}
+          <a 
+            href="https://github.com/Wennington123/Wikiendum" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 bg-[#24292e] text-white rounded-lg hover:bg-[#1b1f23] transition-colors shadow-sm font-medium"
+          >
+            {/* Ícone SVG oficial do GitHub */}
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 9 18v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            Acessar Repositório
+          </a>
+
+          {/* Componente de Doação */}
+          <Donation />
+
+        </div>
       </footer>
     </div>
   );
