@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Coffee, X, QrCode, CreditCard } from "lucide-react";
+import { Coffee, X } from "lucide-react";
 
 export default function Donation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("pix");
+  const [valorSugerido, setValorSugerido] = useState<number | null>(null);
+
+  const valores = [5, 15, 20];
 
   return (
     <>
       {/* Botão Principal ajustado para alinhar perfeitamente com o do GitHub */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-amber-900 bg-amber-100 rounded-lg hover:bg-amber-200 transition-colors duration-200 shadow-sm"
+        className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-amber-900 bg-amber-100 rounded-lg hover:bg-amber-200 transition-colors duration-200 shadow-sm cursor-pointer"
       >
         <Coffee size={18} />
         Compre-me um café
@@ -25,7 +27,7 @@ export default function Donation() {
             
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
             >
               <X size={20} />
             </button>
@@ -40,64 +42,44 @@ export default function Donation() {
               </p>
             </div>
 
-            <div className="flex gap-2 mb-4 p-1 bg-gray-100 rounded-lg">
-              <button
-                onClick={() => setActiveTab("pix")}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-md transition-colors ${
-                  activeTab === "pix" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                <QrCode size={16} />
-                Pix
-              </button>
-              <button
-                onClick={() => setActiveTab("cartao")}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-md transition-colors ${
-                  activeTab === "cartao" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"
-                }`}
-              >
-                <CreditCard size={16} />
-                Cartão
-              </button>
+            {/* Sugestões de Valores */}
+            <div className="mb-6 text-center">
+              <p className="text-sm font-medium text-gray-700 mb-3">Sugestão de contribuição:</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {valores.map((valor) => (
+                  <button
+                    key={valor}
+                    onClick={() => setValorSugerido(valor)}
+                    className={`px-4 py-2 rounded-lg font-medium text-sm cursor-pointer transition-all ${
+                      valorSugerido === valor
+                        ? "bg-amber-400 text-amber-900 border border-amber-500 shadow-sm"
+                        : "bg-gray-100 text-gray-600 border border-transparent hover:bg-gray-200"
+                    }`}
+                  >
+                    R$ {valor}
+                  </button>
+                ))}
+              </div>
             </div>
 
+            {/* Área do Pix */}
             <div className="p-4 border border-gray-100 rounded-lg bg-gray-50 text-center">
-              {activeTab === "pix" ? (
-                <div>
-                  <p className="text-sm text-gray-700 mb-4">Escaneie o QR Code ou copie a chave Pix abaixo:</p>
-                  
-                  {/* Container da imagem do QR Code atualizado */}
-                  <div className="w-32 h-32 mx-auto mb-4">
-                    <img 
-                      src="/qrcode-pix.png" 
-                      alt="QR Code Pix para doação" 
-                      className="w-full h-full object-contain rounded-lg shadow-sm" 
-                    />
-                  </div>
-                  
-                  <div className="flex flex-col gap-2">
-                    <code className="block p-2 text-xs bg-white border border-gray-200 rounded text-left break-all">
-                      (74) 98821-7793
-                    </code>
-                  </div>
-                </div>
-              ) : (
-                <div className="py-4">
-                  <p className="text-sm text-gray-700 mb-5">
-                    Aceitamos cartões de crédito, Apple Pay e Google Pay através da plataforma parceira.
-                  </p>
-                  {/* Botão atualizado com o link e cores do Buy Me a Coffee */}
-                  <a 
-                    href="https://buymeacoffee.com/wikiendum" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-black bg-[#FFDD00] rounded-lg hover:bg-[#FFD000] transition-colors shadow-sm"
-                  >
-                    <Coffee size={18} />
-                    Apoiar no Buy Me a Coffee
-                  </a>
-                </div>
-              )}
+              <p className="text-sm text-gray-700 mb-4">Escaneie o QR Code ou copie a chave Pix abaixo:</p>
+              
+              {/* Container da imagem do QR Code */}
+              <div className="w-32 h-32 mx-auto mb-4">
+                <img 
+                  src="/qrcode-pix.png" 
+                  alt="QR Code Pix para doação" 
+                  className="w-full h-full object-contain rounded-lg shadow-sm" 
+                />
+              </div>
+              
+              <div className="flex flex-col gap-2">
+                <code className="block p-2 text-sm font-mono font-medium bg-white border border-gray-200 rounded text-center select-all cursor-text text-gray-800">
+                  (74) 98821-7793
+                </code>
+              </div>
             </div>
 
           </div>
